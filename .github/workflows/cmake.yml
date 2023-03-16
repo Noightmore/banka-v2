@@ -21,8 +21,8 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Install Dependencies
-#      working-directory: ${{github.workspace}}/build
-      run: chmod ugo+x install_deps.sh && /bin/bash ./install_deps.sh
+      # Install any dependencies required to build your project
+      run: sudo chmod ugo+x ./install_scripts/install_deps.sh && /bin/bash ./install_scripts/install_deps.sh
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
@@ -32,6 +32,11 @@ jobs:
     - name: Build
       # Build your program with the given configuration
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+    - name: Install
+      # Install your program
+      working-directory: ${{github.workspace}}/build
+      run: sudo chmod ugo+x ../install_scripts/install_cgi_script.sh && /bin/bash ../install_scripts/install_cgi_script.sh
 
     - name: Test
       working-directory: ${{github.workspace}}/build

@@ -5,6 +5,7 @@ function install_deps()
   # install dependencies
   echo "Installing dependencies"
   sudo apt update
+  sudo apt upgrade -y
   sudo apt install -y apache2
 }
 

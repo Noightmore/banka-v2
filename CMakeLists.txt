@@ -4,7 +4,7 @@ project(banka_v2)
 set(CMAKE_CXX_STANDARD 23)
 
 add_executable(
-        banka_v2
+        index.cgi
         src/main/main.cpp
         src/main/models/UserAccount.cpp
         src/main/models/headers/UserAccount.h
