@@ -7,10 +7,11 @@ function mock_site_visit()
 
 function test_site_visit()
 {
-  if [[ $(mock_site_visit) == "200" ]]; then
+  response=$(mock_site_visit)
+  if [[ $response == "200" ]]; then
     echo "Test passed"
   else
-    echo "Test failed"
+    echo "Test failed with response: $response"
   fi
 }
 
