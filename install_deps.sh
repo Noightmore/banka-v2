@@ -4,7 +4,7 @@
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # get the id of the operating system
     os_id=$(cat /etc/os-release | grep ^ID= | cut -d '=' -f 2)
-    if [[ "$os_id" == "Ubuntu" ]]; then
+    if [[ "$os_id" == "ubuntu" ]]; then
       echo "we are in ubuntu yay"
       install_deps
     else
