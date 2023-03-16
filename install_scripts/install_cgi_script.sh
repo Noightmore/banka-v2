@@ -16,7 +16,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     os_id=$(cat /etc/os-release | grep ^ID= | cut -d '=' -f 2)
     if [[ "$os_id" == "ubuntu" ]]; then
       echo "we are in ubuntu yay"
-      install_deps
+      configure_apache
     else
       echo "Your cool distro - $os_id - is sadly not supported yet and we are very sorry :("
     fi
