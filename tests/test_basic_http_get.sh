@@ -2,7 +2,7 @@
 
 function mock_site_visit()
 {
-  response=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/cgi-bin/index.cgi)
+  response=$(curl -s -o /dev/null -w "GET" http://localhost/cgi-bin/index.cgi)
   return "$response"
 }
 
