@@ -37,8 +37,7 @@ jobs:
 
     - name: Install
       # Install your program
-      run: sudo chmod ugo+x ./install_scripts/install_cgi_script.sh && \
-           /bin/bash ./install_scripts/install_cgi_script.sh
+      run: sudo chmod ugo+x ./install_scripts/install_cgi_script.sh && /bin/bash ./install_scripts/install_cgi_script.sh
 
     - name: Test Basic Site Functionality
       #working-directory: ${{github.workspace}}/build
