@@ -1,12 +1,9 @@
 FROM ubuntu:latest
 
-RUN set -ex; \
-    su
-
-RUN set -ex ; \
-    echo "nameserver 8.8.8.8" > /etc/resolv.conf
-RUN set -ex ; \
-    echo "Europe/Amsterdam" | tee /etc/timezone
+#RUN set -ex ; \
+#    echo "nameserver 8.8.8.8" > /etc/resolv.conf
+#RUN set -ex ; \
+#    echo "Europe/Amsterdam" | tee /etc/timezone
 
 RUN set -ex ; \
     apt-get update && apt-get install -y apache2 ntpdate \
