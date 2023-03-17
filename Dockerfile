@@ -1,5 +1,8 @@
 FROM ubuntu:latest
 
+RUN set -ex; \
+    su
+
 RUN set -ex ; \
     echo "nameserver 8.8.8.8" > /etc/resolv.conf
 RUN set -ex ; \
