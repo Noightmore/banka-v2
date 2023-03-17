@@ -9,8 +9,8 @@ RUN set -ex ; \
     apt-get update && apt-get install -y apache2 ntpdate ; \
     apt autoremove && apt clean
 
-RUN set -ex ; \
-    ntpdate -s time.nist.gov
+#RUN set -ex ; \
+#    ntpdate -s time.nist.gov
 
 # copy cgi scripts and the server configuration using an installation script
 RUN  set -x ; \
