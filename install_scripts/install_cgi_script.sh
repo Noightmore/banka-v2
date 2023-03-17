@@ -10,7 +10,7 @@ function configure_apache_ubuntu()
   sudo chmod +x /var/www/localhost/cgi-bin/index.cgi
   sudo mkdir -p /etc/apache2/conf.d/
   sudo cp ../server_configs/ubuntu_website.conf /etc/apache2/conf.d/
-  sudo service httpd restart
+  sudo service apache2 restart
 }
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
