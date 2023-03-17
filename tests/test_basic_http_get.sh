@@ -18,6 +18,7 @@ function test_site_visit()
     echo "Test passed"
   else
     echo "Test failed with response: $response"
+    cat /var/log/apache2/error.log
   fi
 }
 
