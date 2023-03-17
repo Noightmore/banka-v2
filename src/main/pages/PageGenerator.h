@@ -6,8 +6,8 @@
 #include <iostream>
 
 // the logins page route should be http://localhost/cgi-bin/banka_v1.cgi
-#define CURRENT_BANK_VERSION "banka_v2"
-#define PAGE_ROUTE ("/cgi-bin/"+CURRENT_BANK_VERSION+".cgi")
+//#define CURRENT_BANK_VERSION banka_v2
+#define PAGE_ROUTE "/cgi-bin/banka_v2.cgi"
 
 namespace bank::pages
 {
