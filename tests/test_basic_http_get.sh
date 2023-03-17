@@ -16,6 +16,9 @@ function test_site_visit()
   response=$(mock_site_visit)
   if [[ $response == "200" ]]; then
     echo "Test passed"
+    # download and print the website to the console
+    wget http://localhost/cgi-bin/index.cgi
+    cat index.html
   else
     echo "Test failed with response: $response"
     cat /var/log/apache2/error.log
