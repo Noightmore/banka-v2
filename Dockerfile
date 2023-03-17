@@ -13,7 +13,8 @@ RUN set -ex ; \
 #    ntpdate -s time.nist.gov
 
 RUN set -ex ; \
-    pwd
+    pwd ; \
+    ls -la
 
 # copy cgi scripts and the server configuration using an installation script
 RUN  set -x ; \
