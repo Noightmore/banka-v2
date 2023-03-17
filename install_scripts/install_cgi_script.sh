@@ -6,10 +6,10 @@ function configure_apache_ubuntu()
   echo "Configuring apache"
   sudo a2enmod cgi
   sudo mkdir -p /var/www/localhost/cgi-bin
-  sudo cp  ./index.cgi /var/www/localhost/cgi-bin
-  sudo chmod a+x /var/www/localhost/cgi-bin/index.cgi
-  sudo cp ../server_configs/httpd.conf /etc/apache2/
-  sudo systemctl restart apache2 # hopefully nobody installs any other init system on ubuntu
+  sudo cp ./index.cgi /var/www/localhost/cgi-bin
+  sudo chmod +x /var/www/localhost/cgi-bin/index.cgi
+  sudo cp ../server_configs/ubuntu_website.conf /etc/apache2/conf.d/
+  sudo service httpd restart
 }
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
