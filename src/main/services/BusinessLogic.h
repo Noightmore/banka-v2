@@ -11,7 +11,7 @@ namespace bank::services
     {
         private:
                 std::string host_ip_address;
-                pages::PageGenerator* page_generator{};
+                //pages::PageGenerator* page_generator{};
                 const std::string default_error_message = "error error";
         public:
             BusinessLogic();

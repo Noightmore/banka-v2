@@ -6,10 +6,10 @@ function configure_apache_ubuntu()
   echo "Configuring apache"
   sudo a2enmod cgi
   sudo mkdir -p /usr/lib/cgi-bin/
-  sudo cp ./index.cgi /usr/lib/cgi-bin/
+  sudo cp ./build/index.cgi /usr/lib/cgi-bin/
   sudo chmod +x /usr/lib/cgi-bin/index.cgi
   sudo mkdir -p /etc/apache2/conf.d/
-  sudo cp ../server_configs/ubuntu_website.conf /etc/apache2/conf.d/
+  sudo cp ./server_configs/ubuntu_apache.conf /etc/apache2/conf.d/
   sudo service apache2 restart
 }
 

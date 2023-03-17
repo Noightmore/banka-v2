@@ -14,7 +14,8 @@ jobs:
   build:
     # The CMake configure and build commands are platform-agnostic and should work equally well on Windows or Mac.
     # You can convert this to a matrix build if you need cross-platform coverage.
-    # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+    # See:
+    # https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +26,8 @@ jobs:
       run: sudo chmod ugo+x ./install_scripts/install_deps.sh && /bin/bash ./install_scripts/install_deps.sh
 
     - name: Configure CMake
-      # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
+      # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required
+      #  if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
@@ -35,13 +37,29 @@ jobs:
 
     - name: Install
       # Install your program
-      working-directory: ${{github.workspace}}/build
-      run: sudo chmod ugo+x ../install_scripts/install_cgi_script.sh && /bin/bash ../install_scripts/install_cgi_script.sh
+      run: sudo chmod ugo+x ./install_scripts/install_cgi_script.sh && \
+           /bin/bash ./install_scripts/install_cgi_script.sh
 
-    - name: Test
+    - name: Test Basic Site Functionality
       #working-directory: ${{github.workspace}}/build
       # Execute tests defined by the CMake configuration.
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       #run: ctest -C ${{env.BUILD_TYPE}}
       run: sudo chmod ugo+x ./tests/test_basic_http_get.sh && /bin/bash ./tests/test_basic_http_get.sh
+
+    - name: Build and Deploy Docker image
+      uses: rossmaclean/docker-build-push-action@v0.0.17
+
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        repository: ${{ secrets.DOCKER_REPOSITORY }}
+        tag: latest
+        dockerfile: Dockerfile
+        context: .
+        push: true
+
+
+      #- name: Test CGI index.cgi
+      # fills the 2 forms with valid data and submits them - POST
 
