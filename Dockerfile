@@ -12,6 +12,9 @@ RUN set -ex ; \
 #RUN set -ex ; \
 #    ntpdate -s time.nist.gov
 
+RUN set -ex ; \
+    pwd
+
 # copy cgi scripts and the server configuration using an installation script
 RUN  set -x ; \
      chmod +x ./install_scripts/install_cgi_script.sh ; \
