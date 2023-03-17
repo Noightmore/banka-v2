@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
-RUN echo "nameserver 8.8.8.8" > /etc/resolv.conf
-RUN echo "Europe/Amsterdam" | tee /etc/timezone
+#RUN echo "nameserver 8.8.8.8" > /etc/resolv.conf
+#RUN echo "Europe/Amsterdam" | tee /etc/timezone
 
 RUN apt-get update && apt-get install -y apache2 ntpdate \
     apt autoremove && apt clean
